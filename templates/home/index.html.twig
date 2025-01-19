@@ -1,0 +1,196 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block stylesheets %}
+<style>
+    body {
+        background-color: #111;
+    }
+
+    .hero-section {
+        padding: 6rem 0;
+        background: linear-gradient(45deg, #0a0a0a, #1a1a1a);
+        border-radius: 15px;
+        margin: 2rem 0;
+        animation: gradientFlow 15s ease infinite;
+    }
+    
+    @keyframes gradientFlow {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .card {
+        background: rgba(20, 20, 20, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+        animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        border-color: rgba(52, 152, 219, 0.3);
+    }
+
+    .interest-icon {
+        font-size: 2em;
+        margin-bottom: 0.8rem;
+        transition: all 0.3s ease;
+    }
+
+    .card:hover .interest-icon {
+        transform: scale(1.2);
+    }
+
+    .btn-custom {
+        background: linear-gradient(45deg, #1a1a1a, #3498db);
+        border: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-custom:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(52, 152, 219, 0.4);
+    }
+
+    .interest-card {
+        opacity: 0;
+        animation: fadeInUp 0.5s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .skill-item {
+        transition: all 0.3s ease;
+        padding: 8px;
+        border-radius: 8px;
+    }
+
+    .skill-item:hover {
+        background: rgba(52, 152, 219, 0.1);
+        transform: translateX(10px);
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+    <div class="hero-section text-center">
+        <h1 class="display-3 mb-4 fw-bold text-light">MANIE MATHIS</h1>
+        <p class="lead text-light">Étudiant en Réseaux et Télécommunications - Groupe {{ groupe }}</p>
+    </div>
+
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-8 mx-auto">
+                <div class="card p-4">
+                    <h2 class="text-primary mb-4">À Propos de Moi</h2>
+                    <p class="lead text-light">Passionné par les technologies des réseaux et les télécommunications, je suis un esprit créatif avec un amour pour l'art et le sport. Mon parcours est enrichi par ma curiosité pour les différentes cultures et mes passions variées.</p>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h4 class="text-primary">Art & Culture</h4>
+                            <p class="text-light">Le dessin est ma forme d'expression créative, complété par mon intérêt pour la musique et l'histoire des civilisations.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="text-primary">Sports & Compétition</h4>
+                            <p class="text-light">Passionné de sports collectifs, je suis particulièrement attiré par :</p>
+                            <ul class="text-light">
+                                <li>⚽ Football</li>
+                                <li>🏈 Football Américain</li>
+                                <li>🏀 Basketball</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-5">
+            <div class="col-md-3 interest-card" style="animation-delay: 0.1s">
+                <div class="card h-100 p-4 text-center">
+                    <div class="interest-icon">🎨</div>
+                    <h3 class="text-primary">Art</h3>
+                    <p class="text-light">Expression par le dessin</p>
+                </div>
+            </div>
+            <div class="col-md-3 interest-card" style="animation-delay: 0.2s">
+                <div class="card h-100 p-4 text-center">
+                    <div class="interest-icon">🎵</div>
+                    <h3 class="text-primary">Musique</h3>
+                    <p class="text-light">Culture musicale variée</p>
+                </div>
+            </div>
+            <div class="col-md-3 interest-card" style="animation-delay: 0.3s">
+                <div class="card h-100 p-4 text-center">
+                    <div class="interest-icon">📚</div>
+                    <h3 class="text-primary">Histoire</h3>
+                    <p class="text-light">Passion des civilisations</p>
+                </div>
+            </div>
+            <div class="col-md-3 interest-card" style="animation-delay: 0.4s">
+                <div class="card h-100 p-4 text-center">
+                    <div class="interest-icon">⚽</div>
+                    <h3 class="text-primary">Sports</h3>
+                    <p class="text-light">Passion pour le sport</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-gradient p-5 mb-5 text-center">
+            <h2 class="text-white mb-3">Découvrez Mon Portfolio</h2>
+            <p class="lead mb-4 text-light">Explorez mes projets techniques et créatifs</p>
+            <a href="{{ path('app_portfolio') }}" class="btn btn-custom">Explorer</a>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 p-4">
+                    <h3 class="text-primary mb-4">Compétences Techniques</h3>
+                    <div class="skill-item">🔧 Administration Réseau</div>
+                    <div class="skill-item">🔒 Sécurité Système</div>
+                    <div class="skill-item">💻 Développement Web</div>
+                    <div class="skill-item">🎨 Design Numérique</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 p-4">
+                    <h3 class="text-primary mb-4">Centres d'Intérêt</h3>
+                    <div class="skill-item">✏️ Art & Design</div>
+                    <div class="skill-item">🎵 Musique</div>
+                    <div class="skill-item">📚 Culture</div>
+                    <div class="skill-item">⚽ Sports</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 p-4">
+                    <h3 class="text-primary mb-4">Objectifs</h3>
+                    <div class="skill-item">🎯 Excellence Technique</div>
+                    <div class="skill-item">🌱 Développement Personnel</div>
+                    <div class="skill-item">🤝 Esprit d'Équipe</div>
+                    <div class="skill-item">🌍 Impact Positif</div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
