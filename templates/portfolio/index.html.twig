@@ -1,0 +1,279 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portfolio{% endblock %}
+
+{% block stylesheets %}
+<style>
+.mb-4 {
+    /* Gardez les styles existants et ajoutez : */
+    transition: all 0.3s ease;
+    }
+
+.mb-4:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.mb-4:hover .text-light ul li::before {
+    color: #2ecc71;
+    transform: translateX(5px);
+    transition: all 0.3s ease;
+}
+
+.mb-4:hover .progress-bar {
+    filter: brightness(1.2);
+    box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);
+}
+
+.mb-4:hover h5, 
+.mb-4:hover span {
+
+    background: linear-gradient(45deg, #2ecc71, #3498db);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+    }
+    .skill-section {
+        animation: fadeInUp 0.6s ease-out;
+    }
+
+    .mb-4 {
+        border-radius: 10px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        transform: translateY(50px);
+        opacity: 0;
+        animation: slideIn 0.5s ease-out forwards;
+    }
+
+    .progress {
+        height: 25px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        overflow: hidden;
+        margin: 10px 0;
+    }
+
+    .progress-bar {
+        transition: width 1.5s ease-out;
+        width: 0;
+    }
+
+    .text-light ul {
+        list-style: none;
+        padding-left: 20px;
+    }
+
+    .text-light ul li {
+        position: relative;
+        padding: 5px 0;
+        opacity: 0;
+        transform: translateX(-20px);
+        animation: slideInRight 0.5s ease-out forwards;
+    }
+
+    .text-light ul li::before {
+        content: "→";
+        position: absolute;
+        left: -20px;
+        color: #3498db;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideIn {
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInRight {
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    /* Délais d'animation pour chaque compétence */
+    .mb-4:nth-child(1) { animation-delay: 0.1s; }
+    .mb-4:nth-child(2) { animation-delay: 0.2s; }
+    .mb-4:nth-child(3) { animation-delay: 0.3s; }
+    .mb-4:nth-child(4) { animation-delay: 0.4s; }
+    .mb-4:nth-child(5) { animation-delay: 0.5s; }
+    .mb-4:nth-child(6) { animation-delay: 0.6s; }
+    .mb-4:nth-child(7) { animation-delay: 0.7s; }
+
+    /* Délais d'animation pour les listes */
+    .text-light ul li:nth-child(1) { animation-delay: 0.8s; }
+    .text-light ul li:nth-child(2) { animation-delay: 0.9s; }
+    .text-light ul li:nth-child(3) { animation-delay: 1.0s; }
+
+    /* Style des titres et pourcentages */
+    h5 {
+        color: #3498db;
+        margin-bottom: 15px;
+    }
+
+    .text-light span {
+        background: linear-gradient(45deg, #3498db, #2ecc71);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="text-center text-light mb-5 skill-section">Mes Compétences</h1>
+
+        <!-- Réseaux -->
+        <div class="mb-4">
+            <div class="d-flex justify-content-between text-light">
+                <h5>Réseaux</h5>
+                <span>70%</span>
+            </div>
+            <div class="progress">
+                <div class="progress-bar bg-primary" role="progressbar" data-value="70" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="text-light mt-2 small">
+                <ul>
+                    <li>Configuration basique de switch</li>
+                    <li>Compréhension du modèle OSI</li>
+                    <li>Compréhension des systèmes d'adressage IP</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Linux -->
+        <div class="mb-4">
+            <div class="d-flex justify-content-between text-light">
+                <h5>Linux</h5>
+                <span>60%</span>
+            </div>
+            <div class="progress">
+                <div class="progress-bar bg-success" role="progressbar" data-value="60" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="text-light mt-2 small">
+                <ul>
+                    <li>Administration système de base</li>
+                    <li>Scripts et shells basiques</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Windows -->
+        <div class="mb-4">
+            <div class="d-flex justify-content-between text-light">
+                <h5>Windows</h5>
+                <span>75%</span>
+            </div>
+            <div class="progress">
+                <div class="progress-bar bg-info" role="progressbar" data-value="75" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="text-light mt-2 small">
+                <ul>
+                    <li>Administration réseaux</li>
+                    <li>Maîtrise de PowerShell</li>
+                    <li>Maîtrise de l'outil Virtual Box</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <div class="mb-4">
+            <div class="d-flex justify-content-between text-light">
+                <h5>Scripts</h5>
+                <span>70%</span>
+            </div>
+            <div class="progress">
+                <div class="progress-bar bg-warning" role="progressbar" data-value="70" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="text-light mt-2 small">
+                <ul>
+                    <li>Scripts PowerShell et Bash</li>
+                    <li>Automatisation de tâches système</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- C/C++ -->
+        <div class="mb-4">
+            <div class="d-flex justify-content-between text-light">
+                <h5>Langage C, C++</h5>
+                <span>50%</span>
+            </div>
+            <div class="progress">
+                <div class="progress-bar bg-danger" role="progressbar" data-value="50" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="text-light mt-2 small">
+                <ul>
+                    <li>Programmation orientée objet</li>
+                    <li>Développement d'applications simples</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Python -->
+        <div class="mb-4">
+            <div class="d-flex justify-content-between text-light">
+                <h5>Langage Python</h5>
+                <span>80%</span>
+            </div>
+            <div class="progress">
+                <div class="progress-bar bg-success" role="progressbar" data-value="80" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="text-light mt-2 small">
+                <ul>
+                    <li>Développement d'applications</li>
+                    <li>Automatisation de tâches</li>
+                    <li>Analyse de données</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Analyse Trame -->
+        <div class="mb-4">
+            <div class="d-flex justify-content-between text-light">
+                <h5>Analyse Trame</h5>
+                <span>65%</span>
+            </div>
+            <div class="progress">
+                <div class="progress-bar bg-primary" role="progressbar" data-value="65" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="text-light mt-2 small">
+                <ul>
+                    <li>Utilisation de Wireshark</li>
+                    <li>Analyse de protocoles réseau</li>
+                    <li>Diagnostic réseau</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+        document.querySelectorAll('.progress-bar').forEach(bar => {
+            const value = bar.getAttribute('data-value');
+            bar.style.width = value + '%';
+        });
+    }, 500);
+});
+</script>
+{% endblock %}
