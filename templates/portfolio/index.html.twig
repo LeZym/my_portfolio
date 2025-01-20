@@ -262,7 +262,97 @@
                 </ul>
             </div>
         </div>
+    <style>
+    .section-documents {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s ease-out forwards;
+        animation-delay: 1.2s;
+    }
+
+    .card {
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        border-color: rgba(52, 152, 219, 0.5);
+    }
+
+    .btn-primary {
+        background: linear-gradient(45deg, #3498db, #2ecc71);
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+    }
+</style>
+
+<div class="section-documents mt-5">
+    <h2 class="text-center text-light mb-4">Documents et Preuves</h2>
+    <div class="row g-4">
+        <!-- Document Programmation -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card bg-dark text-light h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-code mb-3" style="font-size: 2rem;"></i>
+                    <h5 class="card-title">Programmation</h5>
+                    <p class="card-text">TP et projets en C/Python</p>
+                    <a href="{{ asset('documents/programmation.pdf') }}" class="btn btn-primary" download>
+                        <i class="fas fa-download me-2"></i>Télécharger
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Document Analyse de Trame -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card bg-dark text-light h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-network-wired mb-3" style="font-size: 2rem;"></i>
+                    <h5 class="card-title">Analyse de Trame</h5>
+                    <p class="card-text">TP Wireshark et analyses</p>
+                    <a href="{{ asset('documents/analyse_trame.pdf') }}" class="btn btn-primary" download>
+                        <i class="fas fa-download me-2"></i>Télécharger
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Document Réseau -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card bg-dark text-light h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-server mb-3" style="font-size: 2rem;"></i>
+                    <h5 class="card-title">Réseau</h5>
+                    <p class="card-text">Configuration et projets</p>
+                    <a href="{{ asset('documents/reseau.pdf') }}" class="btn btn-primary" download>
+                        <i class="fas fa-download me-2"></i>Télécharger
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Document SAÉ -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card bg-dark text-light h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-project-diagram mb-3" style="font-size: 2rem;"></i>
+                    <h5 class="card-title">SAÉ</h5>
+                    <p class="card-text">Situations d'Apprentissage</p>
+                    <a href="{{ asset('documents/sae.pdf') }}" class="btn btn-primary" download>
+                        <i class="fas fa-download me-2"></i>Télécharger
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 {% endblock %}
 
 {% block javascripts %}
