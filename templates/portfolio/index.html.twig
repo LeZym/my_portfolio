@@ -4,37 +4,6 @@
 
 {% block stylesheets %}
 <style>
-.mb-4 {
-    /* Gardez les styles existants et ajoutez : */
-    transition: all 0.3s ease;
-    }
-
-.mb-4:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.mb-4:hover .text-light ul li::before {
-    color: #2ecc71;
-    transform: translateX(5px);
-    transition: all 0.3s ease;
-}
-
-.mb-4:hover .progress-bar {
-    filter: brightness(1.2);
-    box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);
-}
-
-.mb-4:hover h5, 
-.mb-4:hover span {
-
-    background: linear-gradient(45deg, #2ecc71, #3498db);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transform: scale(1.05);
-    transition: all 0.3s ease;
-    }
     .skill-section {
         animation: fadeInUp 0.6s ease-out;
     }
@@ -47,6 +16,7 @@
         transform: translateY(50px);
         opacity: 0;
         animation: slideIn 0.5s ease-out forwards;
+        transition: all 0.3s ease;
     }
 
     .progress {
@@ -82,6 +52,32 @@
         color: #3498db;
     }
 
+    .mb-4:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .mb-4:hover .text-light ul li::before {
+        color: #2ecc71;
+        transform: translateX(5px);
+        transition: all 0.3s ease;
+    }
+
+    .mb-4:hover .progress-bar {
+        filter: brightness(1.2);
+        box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);
+    }
+
+    .mb-4:hover h5, 
+    .mb-4:hover span {
+        background: linear-gradient(45deg, #2ecc71, #3498db);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transform: scale(1.05);
+        transition: all 0.3s ease;
+    }
+
     @keyframes fadeInUp {
         from {
             opacity: 0;
@@ -107,7 +103,6 @@
         }
     }
 
-    /* Délais d'animation pour chaque compétence */
     .mb-4:nth-child(1) { animation-delay: 0.1s; }
     .mb-4:nth-child(2) { animation-delay: 0.2s; }
     .mb-4:nth-child(3) { animation-delay: 0.3s; }
@@ -116,12 +111,10 @@
     .mb-4:nth-child(6) { animation-delay: 0.6s; }
     .mb-4:nth-child(7) { animation-delay: 0.7s; }
 
-    /* Délais d'animation pour les listes */
     .text-light ul li:nth-child(1) { animation-delay: 0.8s; }
     .text-light ul li:nth-child(2) { animation-delay: 0.9s; }
     .text-light ul li:nth-child(3) { animation-delay: 1.0s; }
 
-    /* Style des titres et pourcentages */
     h5 {
         color: #3498db;
         margin-bottom: 15px;
@@ -132,6 +125,35 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: bold;
+    }
+
+    .section-documents {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s ease-out forwards;
+        animation-delay: 1.2s;
+    }
+
+    .card {
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        border-color: rgba(52, 152, 219, 0.5);
+    }
+
+    .btn-primary {
+        background: linear-gradient(45deg, #3498db, #2ecc71);
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
     }
 </style>
 {% endblock %}
@@ -262,97 +284,68 @@
                 </ul>
             </div>
         </div>
-    <style>
-    .section-documents {
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeInUp 0.6s ease-out forwards;
-        animation-delay: 1.2s;
-    }
 
-    .card {
-        transition: all 0.3s ease;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
-        border-color: rgba(52, 152, 219, 0.5);
-    }
-
-    .btn-primary {
-        background: linear-gradient(45deg, #3498db, #2ecc71);
-        border: none;
-        transition: all 0.3s ease;
-    }
-
-    .btn-primary:hover {
-        transform: scale(1.05);
-        box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
-    }
-</style>
-
-<div class="section-documents mt-5">
-    <h2 class="text-center text-light mb-4">Documents et Preuves</h2>
-    <div class="row g-4">
-        <!-- Document Programmation -->
-        <div class="col-md-6 col-lg-3">
-            <div class="card bg-dark text-light h-100">
-                <div class="card-body text-center">
-                    <i class="fas fa-code mb-3" style="font-size: 2rem;"></i>
-                    <h5 class="card-title">Programmation</h5>
-                    <p class="card-text">TP et projets en C/Python</p>
-                    <a href="{{ asset('documents/programmation.pdf') }}" class="btn btn-primary" download>
-                        <i class="fas fa-download me-2"></i>Télécharger
-                    </a>
+        <!-- Section Documents -->
+        <div class="section-documents mt-5">
+            <h2 class="text-center text-light mb-4">Documents et Preuves</h2>
+            <div class="row g-4">
+                <!-- Document Programmation -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-dark text-light h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-code mb-3" style="font-size: 2rem;"></i>
+                            <h5 class="card-title">Programmation</h5>
+                            <p class="card-text">TP et projets en C/Python</p>
+                            <a href="{{ path('document_view', {'filename': 'programmation.pdf'}) }}" class="btn btn-primary" target="_blank">                                <i class="fas fa-eye me-2"></i>Consulter
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Document Analyse de Trame -->
-        <div class="col-md-6 col-lg-3">
-            <div class="card bg-dark text-light h-100">
-                <div class="card-body text-center">
-                    <i class="fas fa-network-wired mb-3" style="font-size: 2rem;"></i>
-                    <h5 class="card-title">Analyse de Trame</h5>
-                    <p class="card-text">TP Wireshark et analyses</p>
-                    <a href="{{ asset('documents/analyse_trame.pdf') }}" class="btn btn-primary" download>
-                        <i class="fas fa-download me-2"></i>Télécharger
-                    </a>
+                <!-- Document Analyse de Trame -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-dark text-light h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-network-wired mb-3" style="font-size: 2rem;"></i>
+                            <h5 class="card-title">Analyse de Trame</h5>
+                            <p class="card-text">TP Wireshark et analyses</p>
+                            <a href="{{ asset('documents/analyse_trame.pdf') }}" class="btn btn-primary" target="_blank">
+                                <i class="fas fa-eye me-2"></i>Consulter
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Document Réseau -->
-        <div class="col-md-6 col-lg-3">
-            <div class="card bg-dark text-light h-100">
-                <div class="card-body text-center">
-                    <i class="fas fa-server mb-3" style="font-size: 2rem;"></i>
-                    <h5 class="card-title">Réseau</h5>
-                    <p class="card-text">Configuration et projets</p>
-                    <a href="{{ asset('documents/reseau.pdf') }}" class="btn btn-primary" download>
-                        <i class="fas fa-download me-2"></i>Télécharger
-                    </a>
+                <!-- Document Réseau -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-dark text-light h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-server mb-3" style="font-size: 2rem;"></i>
+                            <h5 class="card-title">Réseau</h5>
+                            <p class="card-text">Configuration et projets</p>
+                            <a href="{{ asset('documents/reseau.pdf') }}" class="btn btn-primary" target="_blank">
+                                <i class="fas fa-eye me-2"></i>Consulter
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Document SAÉ -->
-        <div class="col-md-6 col-lg-3">
-            <div class="card bg-dark text-light h-100">
-                <div class="card-body text-center">
-                    <i class="fas fa-project-diagram mb-3" style="font-size: 2rem;"></i>
-                    <h5 class="card-title">SAÉ</h5>
-                    <p class="card-text">Situations d'Apprentissage</p>
-                    <a href="{{ asset('documents/sae.pdf') }}" class="btn btn-primary" download>
-                        <i class="fas fa-download me-2"></i>Télécharger
-                    </a>
+                <!-- Document SAÉ -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-dark text-light h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-project-diagram mb-3" style="font-size: 2rem;"></i>
+                            <h5 class="card-title">SAÉ</h5>
+                            <p class="card-text">Situations d'Apprentissage</p>
+                            <a href="{{ asset('documents/sae.pdf') }}" class="btn btn-primary" target="_blank">
+                                <i class="fas fa-eye me-2"></i>Consulter
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}
 
 {% block javascripts %}
